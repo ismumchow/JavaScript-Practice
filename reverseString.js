@@ -1,5 +1,7 @@
 
-var sampleStr = 'HELLOPALS'
+var sampleStr = 'HELLOPALS'; 
+var sampleStr2 = 'TEST Case #2 !!!'
+
 reverseString = function (str) {
     var reversedArr = []; 
     var splitString = []; 
@@ -14,8 +16,20 @@ reverseString = function (str) {
     var stringReversed = reversedArr.join().replace(/,/g, '')
    return stringReversed
 }
+//TEST CASE 1
+console.log(reverseString(sampleStr)); 
 
-var str1 = reverseString(sampleStr)
-console.log(str1); 
+
+//much easier method 
+
+
+function reverse (str) { 
+    var reversedString = str.split('').reverse().join(); 
+    return reversedString
+}
+
+//TEST CASE 2
+
+console.log(reverse(sampleStr2))
 
 
