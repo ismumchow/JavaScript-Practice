@@ -31,7 +31,6 @@ var gameLoop = function () {
         
        
         for (let key in game.suspects[i]) {
-            
             if(game.suspects[i][key] === 'orange') {
                char1 =  game.suspects[i].name 
             }
