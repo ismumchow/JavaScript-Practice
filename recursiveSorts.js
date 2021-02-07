@@ -31,34 +31,42 @@ function Merge(left,right) {
 // console.log(sortedArr);
 
 function quickSort (arr) {
-    qs (arr,0,arr.length-1)
+    quickSortRecursive(arr,0,arr.length-1)
 }; 
-function qs(arr,l,r) {
-    if (l >= r) {
-        return 
+
+function quickSortRecursive(arr, start, end) {
+    // Base case or terminating case
+    if (start >= end) {
+        return;
     }
-    p = partition(arr,l,r)
-    qs(arr, l, p-1); 
-    qs(arr, p+1, r); 
+    
+    // Returns pivotIndex
+    let index = partition(arr, start, end);
+    
+    // Recursively apply the same logic to the left and right subarrays
+    quickSort(arr, start, index - 1);
+    quickSort(arr, index + 1, end);
 }
 
-function partition (arr,l,r) {
-    pivot = arr[r] //pivot is generally just set to the last val 
-    i = l-1; 
-       for (j = 0; j < r-1; j++) {
-        if (arr[j] < pivot) {
-            i++; // i keeps track of the rightmost index that is left of the pivot, so everytime there is a variable there is a pivot that is less than the pivot, i++ and then you swap that current val arr[j] with the arr[i]
-            
-            var temp = arr[j] 
-            arr[j] = arr[i]
-            arr[i] = temp; 
-            var temp2 = arr[i+1]; // swaps the pivot into its correct position
-            arr[i+1] = arr[r];
-            arr[r] = temp2; 
-            return i+1
+function partition(arr, start, end){
+    // Taking the last element as the pivot
+    const pivotValue = arr[end];
+    let pivotIndex = start; 
+    for (let i = start; i < end; i++) {
+        if (arr[i] < pivotValue) {
+        // Swapping elements
+        [arr[i], arr[pivotIndex]] = [arr[pivotIndex], arr[i]];
+        // Moving to next element
+        pivotIndex++;
         }
     }
-}
- quickSort(sampleArr);
+    
+    // Putting the pivot value in the middle
+    [arr[pivotIndex], arr[end]] = [arr[end], arr[pivotIndex]] 
+    return pivotIndex;
+};
+
+
+quickSort(sampleArr);
 console.log(sampleArr);
 
