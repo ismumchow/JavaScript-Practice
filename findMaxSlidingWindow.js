@@ -14,10 +14,11 @@ let findMaxSlidingWindow = function(arr, windowSize) {
     return result;
   }
 
-  let window_ = [];
+  let window_ = []; // does not hold values but indexes
   //find out max for first window
   for (let i = 0; i < windowSize; i++) {
     while (window_.length > 0 && arr[i] >= arr[window_[window_.length - 1]]) {
+      
       window_.pop();
     } 
     window_.push(i);
