@@ -13,7 +13,7 @@ reverseString = function (str) {
        reversedArr.push(splitString.pop());
    }
 
-    var stringReversed = reversedArr.join().replace(/,/g, '')
+  var stringReversed = reversedArr.join().replace(/,/g, '')
    return stringReversed
 }
 //TEST CASE 1
