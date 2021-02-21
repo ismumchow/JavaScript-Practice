@@ -27,12 +27,10 @@ function Merge(left,right) {
     return result
 }
 
-// let sortedArr = mergeRecursive(sampleArr);
-// console.log(sortedArr);
+let sortedArr = mergeRecursive(sampleArr);
+console.log(sortedArr);
 
-function quickSort (arr) {
-    quickSortRecursive(arr,0,arr.length-1)
-}; 
+
 
 function quickSortRecursive(arr, start, end) {
     // Base case or terminating case
@@ -44,8 +42,8 @@ function quickSortRecursive(arr, start, end) {
     let index = partition(arr, start, end);
     
     // Recursively apply the same logic to the left and right subarrays
-    quickSort(arr, start, index - 1);
-    quickSort(arr, index + 1, end);
+    quickSortRecursive(arr, start, index - 1);
+    quickSortRecursive(arr, index + 1, end);
     
     return arr
 }
@@ -68,7 +66,10 @@ function partition(arr, start, end){
     return pivotIndex;
 };
 
+function quickSort (arr) {
+    quickSortRecursive(arr,0,arr.length-1)
+}; 
 
-quickSort(sampleArr);
-console.log(sampleArr);
+// quickSort(sampleArr);
+// console.log(sampleArr);
 
