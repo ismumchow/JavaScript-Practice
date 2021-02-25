@@ -11,7 +11,7 @@ class LinkedList {
     }
     remove (val) {
         if (val === this.head.val) {
-            this.head = this.head.next
+            this.head = this.head.next2
         }
         else{
             let previousNode = this.head; 
